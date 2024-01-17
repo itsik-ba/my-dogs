@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import { globalStyle } from './style/Style';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { womenShoesData } from './data/Data';
+import { DogsData } from './data/Data';
 
 type RootStackParamList = {
   Cart: { name: string; url: any; price: string };
@@ -27,7 +27,7 @@ const Women = () => {
   return (
     <ScrollView>
       <View style={globalStyle.container}>
-        {womenShoesData.map((data: { name: any; url: any; price: any; }, index: React.Key | null | undefined) => (
+        {DogsData.map((data: { name: any; url: any; price: any; }, index: React.Key | null | undefined) => (
           <TouchableOpacity
             style={globalStyle.card}
             key={index}

@@ -1,4 +1,4 @@
-export const womenShoesData = [
+export const DogsData = [
     {
       name: "Black_Heels",
       url: require("../../assets/women/black_akev.png"),
