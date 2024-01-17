@@ -11,17 +11,17 @@ export const DogsDataData = [
   },
   {
     name: "NilsBabbls",
-    url: require("../assets/nilsbabbls.jpg"),
+    url: require("../assets/nilsBabbls.jpg"),
     price: "68$"
   },
   {
     name: "Babbls",
-    url: require("../assets/babbls.jpg"),
+    url: require("../assets/babbls.png"),
     price: "68$"
   },
   {
     name: "babblsi",
-    url: require("../assets/babblsi.jpg"),
+    url: require("../assets/babblsi.png"),
     price: "68$"
   },
   {

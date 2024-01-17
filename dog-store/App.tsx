@@ -9,16 +9,25 @@ import { useNavigation } from '@react-navigation/native';
 const Stack = createNativeStackNavigator()
 
 import Admin from './pages/Admin';
-import Women from './pages/Women';
-import Man from './pages/Man';
 import Cart from './pages/Cart';
+import Dogs from './pages/Dogs';
+
+
+const SCREENS = {
+  DOGS: 'Dogs',
+  CART: 'Cart',
+  ADMIN: 'Admin',
+};
+
 
 const AdminButton = () => {
   const navigation = useNavigation();
 
+
   const handleAdmin = () => {
     try {
-      navigation.navigate("Admin");
+      const screenName = 'Admin' as 'Admin';
+      navigation.navigate(screenName);
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +35,7 @@ const AdminButton = () => {
 
   return (
     <TouchableOpacity onPress={handleAdmin}>
-      <Image source={require("./assets/admin.png")} />
+      <Image source={require("./assets/admin-64.png")} />
     </TouchableOpacity>
   );
 };
@@ -38,15 +47,14 @@ export default function App() {
 <NavigationContainer>
      <SafeAreaView style={globalStyle.container}>
      <Text style={globalStyle.logo}>
-           MY_SHOES
+           Dogs
          </Text>
          <GestureHandlerRootView>
           <AdminButton />
           </GestureHandlerRootView>
 
        <Stack.Navigator>
-         <Stack.Screen name="Women" component={Women} />
-         <Stack.Screen name="Man" component={Man} />
+         <Stack.Screen name="Dogs" component={Dogs} />
          <Stack.Screen name="Cart" component={Cart} />
          <Stack.Screen name="Admin" component={Admin} />
        </Stack.Navigator>

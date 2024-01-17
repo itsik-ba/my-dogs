@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
  export const globalStyle = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'pink',
       marginTop:50,
       padding:10,
      
@@ -19,6 +19,7 @@ import { StyleSheet } from "react-native";
       padding:30,
       flexDirection:"row",
        gap:40,
+       
     },
 
     compStyle:{

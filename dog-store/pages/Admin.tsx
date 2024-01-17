@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Image, Alert } from 'react-native';
-import { DogsData } from './data/Data';
+import { DogsDataData } from './DogsData';
 import { styleAdmin } from './style/StyleAdmin';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImagePicker from 'react-native-image-picker';
@@ -11,7 +11,7 @@ const Admin = () => {
   const [price, setPrice] = useState('');
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [showAllItems, setShowAllItems] = useState(true);
-  const [shoesData, setShoesData] = useState(DogsData);
+  const [shoesData, setShoesData] = useState(DogsDataData);
   // const baseImagePath = '/path/to/images/';
 
   const handleAddItem = () => {
