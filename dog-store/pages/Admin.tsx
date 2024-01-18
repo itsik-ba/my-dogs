@@ -3,7 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, FlatList, Image, Alert } from 
 import { DogsDataData } from './DogsData';
 import { styleAdmin } from './style/StyleAdmin';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import ImagePicker from 'react-native-image-picker';
+// import ImagePicker from 'react-native-image-picker';
+import * as ImagePicker from 'expo-image-picker';
 
 const Admin = () => {
   const [name, setName] = useState('');
@@ -12,11 +13,13 @@ const Admin = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [showAllItems, setShowAllItems] = useState(true);
   const [shoesData, setShoesData] = useState(DogsDataData);
-  // const baseImagePath = '/path/to/images/';
-
+  
+  
   const handleAddItem = () => {
     if (name.trim() !== '' && url.trim() !== '' && price.trim() !== '') {
       const newItem = { name, url, price };
+      
+
       setShoesData((prevData) => [...prevData, newItem]);
       setName('');
       setUrl('');
@@ -79,20 +82,33 @@ const Admin = () => {
     }
   };
 
-  const handlePickImage = () => {
-    ImagePicker.launchImageLibrary(
-      {
-        mediaType: 'photo',
-      },
-      (response: any) => {
-        if (!response.error && response.uri) {
-          setUrl(response.uri);
-        } else if (response.error) {
-          console.error(response.error);
-        }
-      }
-    );
-  };
+ const handlePickImage = async () => {
+  const result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    allowsEditing: true,
+    aspect: [4, 3],
+    quality: 1,
+  });
+
+  const resultAny = result as any;
+
+  if (resultAny?.uri && !resultAny?.cancelled) {
+    setUrl(resultAny.uri);
+  }
+
+  
+  const assets = resultAny?.assets || [];
+  const firstAsset = assets[0] || {};
+  const uriString = firstAsset.uri || '';
+  const startIndex = uriString.indexOf("file:///"); // Adjust the starting index based on your needs
+  const extractedString = uriString.substring(startIndex);
+  
+  setUrl(extractedString);
+
+    console.log(extractedString);
+
+};
+
 
   return (
     <View style={styleAdmin.container}>
@@ -138,7 +154,7 @@ const Admin = () => {
           renderItem={({ item, index }) => {
           
             if (!item) {
-              return null; // Skip rendering if the item is undefined
+              return null; 
             }
 
             console.log("Item URL:", item.url);
@@ -173,3 +189,5 @@ const Admin = () => {
 };
 
 export default Admin;
+
+

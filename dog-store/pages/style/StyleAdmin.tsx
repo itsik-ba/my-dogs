@@ -2,21 +2,19 @@ import { StyleSheet } from "react-native";
 
 export const styleAdmin = StyleSheet.create({
  container: {
-  
- 
-  
+ height:"100%",
  },
  header:{
   textAlign: "center",
-  margin:18,
-  fontSize: 24,
+  margin:4,
+  fontSize: 20,
   color:"red",
   fontWeight: "bold",
 },
 inputText:{
-padding:6,
+padding:4,
 backgroundColor: '#d3d3d3',
-margin:10,
+margin:8,
 borderWidth:1,
 textAlign: "center",
 borderColor: "red",
@@ -27,12 +25,12 @@ alignSelf: "center",
 button:{
     borderRadius:18,
     borderWidth: 2,
-    padding:4,
-    margin:4,
-    width:150,
+    padding:3,
+    margin:3,
+    width:130,
     alignSelf: "center",
     borderColor:"pink",
-
+    
 },
 
 // the list of items
@@ -41,20 +39,21 @@ listContainer:{
   alignSelf: "center",
   alignItems: 'center',
   width:250,
-  height:300,
   borderRadius: 8,
-  borderWidth: 2,
+  borderWidth: 1,
   borderColor: '#ccc',
   backgroundColor: '#fff',
   shadowOpacity: 0.2,
   shadowRadius: 2,
   elevation: 2,
-  padding:5,
+  padding:4,
+  margin:6,
+  
   },
 
 listFonts:{
   fontWeight: 'bold',
-  fontSize:18,
+  fontSize:15,
   padding:8,
 },
 
@@ -64,8 +63,9 @@ showList:{
 
 
   image:{
-  width:150,
-  height:150,
+  width:180,
+  height:160,
+  resizeMode:"contain"
  },
 
 icons:{
@@ -83,13 +83,15 @@ marginLeft:50,
  
 textButton:{
   textAlign: 'center', 
-  color: 'blue'
+  color: 'blue',
+ 
 },
 
 buttonContainer:{
   flexDirection: 'row',
   justifyContent: 'space-between',
   marginVertical: 8,
+  alignSelf: 'center',
 },
 
 
